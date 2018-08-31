@@ -1,19 +1,17 @@
 
-########################################################
-## build and run irods all-in-one (with icat database)##
-########################################################
+
+## build and run irods all-in-one (with icat database)
+
 
 
 disclaimer: every name and directory are not mandatory (except for the database) they could be whatever.
 
-1) 
-build an image within irods and postrgesql:
+### 1)build an image within irods and postrgesql:
 
 docker build -t "dockerirods-aio:1" .
 
 
-2)
-launch the all-in-one container:
+### 2)launch the all-in-one container:
 
 docker run -it --name dockirods_aio  -v /data/data_icat_db:/var/lib/postgsql/data -v /mnt/seedstore_nfs:/var/lib/datairods -v /opt/eudat/myrules:/var/lib/irods/myrules -v /opt/eudat/myVault:/var/lib/irods/Vault -p 1247:1247 -p 1248:1248 -p 5432:5432 -p 20000-20199:20000-20199   dockerirods-aio:1 /bin/bash
 
@@ -38,11 +36,10 @@ the rules directory is used to update some script , if needed, without touch the
 
  after docker container is started you are into container:
 
-3) 
-SETUP ALL:
+### 3) SETUP ALL:
 
-prep ICAT::-----------
-----------------------
+prep ICAT
+---------
 
 inside psql:
 
@@ -65,8 +62,9 @@ exit
 
 
 
-setup irods::-----------
-------------------------
+setup irods
+-----------
+
 from root
 
 python /var/lib/irods/scripts/setup_irods.py
@@ -85,9 +83,8 @@ user:irods password:xoxoxo
 "zone_port": 1247,
 "zone_user": "rods"
 
-4)
-start irods::-----------
-------------------------
+### 4)start irods
+
 
 become irods user
 su - irods
@@ -95,9 +92,8 @@ su - irods
 cd /var/lib/irods
 ./irodsctl start
 
-5)
-check irods/postgres/ICAT::-----------
---------------------------------------
+### 5)check irods/postgres/ICAT
+
 
 (su - irods)
 
