@@ -12,8 +12,8 @@ SYSTEM -A-
 "federation": [
 	 {
         "icat_host": "10.10.10.7",
-        "zone_name": "VGNI",
-        "zone_key": "VGNI_ZONE_SID",
+        "zone_name": "BBBB",
+        "zone_key": "BBBB_ZONE_SID",
         "negotiation_key": "vgni_32_byte_key_for_agent__conn"
     	}
      ], 
@@ -43,7 +43,7 @@ docker run -it --name dockirods_aio_b  -v /data/data_icat_db:/var/lib/postgsql/d
 
 
 
-create user irodsb with password 'bsdor';
+create user irodsb with password 'xxxxxx';
 
 create database "ICAT";
 
@@ -60,15 +60,15 @@ python /var/lib/irods/scripts/setup_irods.py
 
 reply on interactive installation:
 
-user:irodsb password:birods 
+user:irodsb password:xxxxxx 
 
 -------------------------------------------
-"zone_key": "VGNI_ZONE_SID"
-"negotiation_key": "vgni_32_byte_key_for_agent__conn",
+"zone_key": "BBBB_ZONE_SID"
+"negotiation_key": "bbbb_32_byte_key_for_agent__conn",
 "server_control_plane_key": "TEMPORARY__32byte_ctrl_plane_key"
 "xmsg_port": 1279,
 "zone_auth_scheme": "native",
-"zone_name": "VGNI",
+"zone_name": "BBBB",
 "zone_port": 1247,
 "zone_user": "rodsb"
 
@@ -83,16 +83,16 @@ user:irodsb password:birods
 	 {
         {"address_type": "local", "addresses":
     [
-        {"address": "93.63.40.84"},
-        {"address": "irods.rm.ingv.it"},
-        {"address": "irods1.rm.ingv.it"},
+        {"address": "12.34.56.78"},
+        {"address": "irods.xxx.xxxx.it"},
+        {"address": "irods1.xxx.xxxx.it"},
         {"address": "localhost"},
         {"address": "127.0.0.1"} 
     ] 
     },
-        "zone_name": "INGV",
-        "zone_key": "INGV01_ZONE_SID",
-        "negotiation_key": "ingv_32_byte_key_for_agent__conn"
+        "zone_name": "AAAA",
+        "zone_key": "AAAA01_ZONE_SID",
+        "negotiation_key": "aaaa_32_byte_key_for_agent__conn"
     	}
      ], 
 
